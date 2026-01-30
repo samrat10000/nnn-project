@@ -5,6 +5,7 @@ import {
     Body,
     Param,
     Delete,
+    Patch,
     UseGuards,
 } from '@nestjs/common';
 import { InventoryService } from './inventory.service';
@@ -33,6 +34,13 @@ export class InventoryController {
     @Roles(UserRole.ADMIN) // Only ADMIN can create
     create(@Body() body: any) {
         return this.inventoryService.create(body);
+    }
+
+    @Patch(':id')
+    @UseGuards(RolesGuard)
+    @Roles(UserRole.ADMIN)
+    update(@Param('id') id: string, @Body() body: any) {
+        return this.inventoryService.update(id, body);
     }
 
     @Delete(':id')

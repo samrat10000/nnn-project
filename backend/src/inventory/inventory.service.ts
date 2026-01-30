@@ -26,6 +26,16 @@ export class InventoryService {
         return item;
     }
 
+    async update(id: string, updateInventoryDto: any): Promise<Inventory> {
+        const updatedItem = await this.inventoryModel
+            .findByIdAndUpdate(id, updateInventoryDto, { new: true })
+            .exec();
+        if (!updatedItem) {
+            throw new NotFoundException(`Item with ID ${id} not found`);
+        }
+        return updatedItem;
+    }
+
     async delete(id: string): Promise<any> {
         const result = await this.inventoryModel.findByIdAndDelete(id).exec();
         if (!result) {
