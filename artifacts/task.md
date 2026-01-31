@@ -1,0 +1,74 @@
+# Mini Inventory Management System - Internship Task List
+
+- [ ] **Phase 0: Project Initialization & Structure**
+    - [x] Initialize Git repository (main branch)
+    - [x] Create project root directory
+    - [x] Initialize NestJS backend (standard mode, then restructure)
+    - [x] Create mandatory folder structure
+    - [x] Commit initial setup to a new feature branch (`feat/project-setup`)
+- [ ] **Phase 1: Database & Configuration**
+    - [x] Set up environment variables (.env)
+    - [x] Implement `app.config.ts` and `database.module.ts`
+    - [x] Connect Mongoose to MongoDB
+- [ ] **Phase 2: Users Module Base**
+    - [x] Create User schema (Mongoose)
+    - [x] Implement UsersService (create, find)
+    - [x] Implement UsersController
+- [ ] **Phase 3: Authentication (Auth Module)**
+    - [x] Install JWT and Passport dependencies
+    - [x] Implement JWT Strategy
+    - [x] Create AuthController (Register/Login)
+    - [x] Secure routes with Guards
+- [ ] **Phase 4: Inventory Management**
+    - [x] Create Inventory schema
+    - [x] Implement CRUD operations in InventoryService
+    - [x] Secure Inventory endpoints (Admin only vs Public)
+- [ ] **Phase 5: Frontend Foundation**
+    - [x] Initialize Next.js App Router project
+    - [x] Setup Tailwind & shadcn/ui
+- [ ] **Phase 6: Frontend Integration**
+    - [x] Implement Login/Register UI
+    - [x] Dashboard & Inventory List
+    - [x] Protected Routes integration
+- [ ] **Phase 7: Inventory CRUD Completion (Manage/Delete)**
+    - [x] Backend: Implement PATCH (Update) and DELETE endpoints
+    - [x] Backend: Add validation for updates
+    - [x] Frontend: Add Edit Dialog
+    - [x] Frontend: Add Delete confirmation and logic
+- [x] **Phase 8: Advanced Authentication**
+    - [x] Backend: Refresh Token Strategy
+    - [x] Backend: Granular Permissions (PBAC)
+    - [x] Frontend: Axios Interceptors for Token Refresh
+- [x] **Phase 9: Advanced Domain Modeling (Warehouse System)**
+    - [x] Database: Material Schema (Dimensions, Type)
+    - [x] Database: Stock Schema (Batch, Serial, Expiry)
+    - [x] Backend: Material CRUD API
+    - [x] Backend: Stock CRUD API
+    - [x] Frontend: Navigation Bar
+    - [x] Frontend: Materials Page
+    - [x] Frontend: Stock Page (List View)
+    - [x] Frontend: Add Stock Dialog
+    - [x] Frontend: Edit Stock Dialog
+    - [x] Frontend: Delete Stock Functionality
+- [x] **Phase 10: Dashboard Analytics Upgrade**
+    - [x] Remove old inventory table from Dashboard
+    - [x] Add Material & Stock summary cards
+    - [x] Show total stock quantities by material
+    - [x] Add quick action links to Materials/Stock pages
+    - [x] Display warehouse analytics
+- [x] **Phase 11: Multi-Role Permission System**
+    - [x] Backend: Add WAREHOUSE_WORKER and VIEWER roles
+    - [x] Backend: Update Stock permissions (WORKER can add/update)
+    - [x] Backend: Ensure Materials are ADMIN-only
+    - [x] Frontend: Update UI to show/hide buttons by role
+    - [x] Frontend: Add role checks for Add/Edit/Delete actions
+- [x] **Phase 12: User Management System**
+    - [x] Backend: Add ADMIN-only user list endpoint
+    - [x] Backend: Add create user endpoint (ADMIN)
+    - [x] Backend: Add update user role endpoint
+    - [x] Backend: Add delete user endpoint
+    - [x] Frontend: Create Users page (ADMIN-only)
+    - [x] Frontend: User table with role badges
+    - [x] Frontend: Add User dialog with role selection
+    - [x] Frontend: Edit User dialog
+    - [x] Frontend: Delete user functionality

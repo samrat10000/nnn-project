@@ -1,5 +1,6 @@
-import { Controller, Post, Body, UseGuards, Request, Get } from '@nestjs/common';
+import { Controller, Post, Body, UseGuards, Request, Get, UnauthorizedException } from '@nestjs/common';
 import { AuthService } from './auth.service';
+import { JwtAuthGuard } from './guards/jwt-auth.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -15,11 +16,19 @@ export class AuthController {
     async login(@Body() body: any) {
         const user = await this.authService.validateUser(body.email, body.password);
         if (!user) {
-            throw new UnauthorizedException();
+            throw new UnauthorizedException('Invalid credentials');
         }
-        return this.authService.login(user); // returns { access_token: ... }
+        return this.authService.login(user);
+    }
+
+    @Post('refresh')
+    async refresh(@Body() body: { refresh_token: string }) {
+        return this.authService.refresh(body.refresh_token);
+    }
+
+    @Post('logout')
+    @UseGuards(JwtAuthGuard)
+    async logout(@Request() req: any) {
+        return this.authService.logout(req.user.id);
     }
 }
-
-// Needed imports for the above file to compile (added manually now safely):
-import { UnauthorizedException } from '@nestjs/common';
