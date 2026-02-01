@@ -6,6 +6,8 @@ import { MaterialController } from './material.controller';
 import { MaterialService } from './material.service';
 import { StockController } from './stock.controller';
 import { StockService } from './stock.service';
+import { ReportsController } from './reports.controller';
+import { ReportsService } from './reports.service';
 import { Inventory, InventorySchema } from './schemas/inventory.schema';
 import { Material, MaterialSchema } from './schemas/material.schema';
 import { Stock, StockSchema } from './schemas/stock.schema';
@@ -18,7 +20,17 @@ import { Stock, StockSchema } from './schemas/stock.schema';
             { name: Stock.name, schema: StockSchema },
         ]),
     ],
-    controllers: [InventoryController, MaterialController, StockController],
-    providers: [InventoryService, MaterialService, StockService],
+    controllers: [
+        InventoryController,
+        MaterialController,
+        StockController,
+        ReportsController
+    ],
+    providers: [
+        InventoryService,
+        MaterialService,
+        StockService,
+        ReportsService
+    ],
 })
 export class InventoryModule { }
